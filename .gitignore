@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Next.js
+web/.next/
+web/out/
+
+# Environment & secrets
+.env
+.env.local
+web/.env
+web/.env.*
+
+# Database (regenerate: npm run import:cms --prefix web)
+web/payload.db
+web/payload.db-*
+
+# Logs & debug
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Payload generated (regenerate: npm run generate:importmap --prefix web)
+# Keep importMap.js committed for easier setup
+
+# Temp
+source.html
+agent-tools/

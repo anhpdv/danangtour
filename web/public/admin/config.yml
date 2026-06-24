@@ -1,0 +1,53 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: web/public/media
+public_folder: /media
+
+locale: vi
+i18n:
+  structure: multiple_folders
+  locales:
+    - vi
+    - en
+    - ja
+    - ko
+    - zh
+  default_locale: vi
+
+collections:
+  - name: pages
+    label: Trang
+    label_singular: Trang
+    folder: web/content/pages
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - { label: Tiêu đề, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Mô tả, name: description, widget: text }
+      - { label: Ảnh OG, name: ogImage, widget: string, required: false }
+      - { label: Ngôn ngữ, name: locale, widget: select, options: [vi, en, ja, ko, zh], default: vi }
+      - { label: Nội dung chính (HTML), name: mainHtml, widget: code, default_language: html }
+      - { label: Header HTML, name: headerHtml, widget: code, default_language: html, required: false }
+      - { label: Footer HTML, name: footerHtml, widget: code, default_language: html, required: false }
+      - { label: URL gốc, name: url, widget: string, required: false }
+
+  - name: categories
+    label: Danh mục
+    label_singular: Danh mục
+    folder: cms/data/categories
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Tên, name: name, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: WordPress ID, name: wpId, widget: number, required: false }
+      - { label: Mô tả, name: description, widget: text, required: false }
